@@ -1,1 +1,7 @@
-h1 Taskmanageapp
+h2
+  = link_to 'Add New', new_project_path
+  Taskmanageapp
+ul
+- @projects.each do |project|
+  li
+    = link_to project.name, project_path(project)
