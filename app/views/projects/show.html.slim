@@ -1,2 +1,21 @@
 h2
   = @project.name
+
+h3 Tasks
+- if @project.tasks.any?
+  ul
+    - @project.tasks.each do |task|
+      li
+        = task.name
+        = link_to '[x]',
+          project_task_path(@project, task),
+          method: :delete,
+          data: { confirm: 'Sure?'}
+
+= form_for([@project, @project.tasks.build]) do |f|
+  p
+    = f.text_field :name
+  p
+    = f.submit
+
+= button_to 'back', projects_path, method: :get
