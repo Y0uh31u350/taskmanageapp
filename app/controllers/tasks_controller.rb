@@ -13,6 +13,10 @@ class TasksController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   private
     def tasks_params
       params.require(:task).permit(:name, :progress)

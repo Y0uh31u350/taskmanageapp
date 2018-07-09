@@ -6,7 +6,7 @@ h3 Tasks
   ul
     - @project.tasks.each do |task|
       li
-        = task.name
+        = link_to [ task.name, task.progress ], task_path(task)
         = link_to '[x]',
           project_task_path(@project, task),
           method: :delete,
@@ -14,7 +14,9 @@ h3 Tasks
 
 = form_for([@project, @project.tasks.build]) do |f|
   p
-    = f.text_field :name
+    = f.text_field :name, placeholder: 'enter task name'
+  p
+    = f.text_field :progress, placeholder: 'enter task progress'
   p
     = f.submit
 
