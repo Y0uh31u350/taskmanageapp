@@ -2,6 +2,11 @@ h2
   = link_to 'Add New', new_project_path
   Taskmanageapp
 ul
-- @projects.each do |project|
-  li
-    = link_to project.name, project_path(project)
+  - @projects.each do |project|
+    li
+      = link_to project.name, project_path(project)
+      = link_to '[Edit]', edit_project_path(project)
+      = link_to '[X]',
+        project_path(project),
+        method: :delete,
+        data: { confirm: 'Sure?'}

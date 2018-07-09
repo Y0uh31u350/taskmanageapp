@@ -1,0 +1,7 @@
+= form_for @project do |f|
+  p
+    = f.text_field :name, placeholder: 'enter project name'
+    - if @project.errors.messages[:name].any?
+    = @project.errors.messages[:name][0]
+  p
+    = f.submit
