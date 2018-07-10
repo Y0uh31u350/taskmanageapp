@@ -2,3 +2,20 @@ h2
   = @task.name
 p
   = simple_format @task.progress
+
+h3 Comment
+- if @task.comments.any?
+  ul
+    - @task.comments.each do |comment|
+      li
+       = comment.body
+       = link_to '[x]',
+         task_comment_path(@task, comment),
+         method: :delete,
+         data: { confirm: 'Sure?'}
+
+= form_for([@task, @task.comments.build]) do |d|
+  p
+    = d.text_area :body
+  p
+    = d.submit
