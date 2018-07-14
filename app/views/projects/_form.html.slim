@@ -1,7 +1,8 @@
-= form_for @project do |f|
+= form_for @project, html: { class: 'form-group'} do |f|
   p
-    = f.text_field :name, placeholder: 'enter project name'
+    = f.text_field :name, placeholder: 'enter project name', class: 'form-control'
     - if @project.errors.messages[:name].any?
-    = @project.errors.messages[:name][0]
   p
-    = f.submit
+    span.text-danger = @project.errors.messages[:name][0]
+  p
+    = f.submit :class=>"btn btn-secondary btn-sm"

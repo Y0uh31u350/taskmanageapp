@@ -1,12 +1,13 @@
-h2  Taskmanageapp
-p
- = link_to 'Add New Project', new_project_path
-ul
-  - @projects.each do |project|
-    li
-      = link_to project.name, project_path(project)
-      = link_to '[Edit]', edit_project_path(project)
-      = link_to '[X]',
-        project_path(project),
-        method: :delete,
-        data: { confirm: 'Sure?'}
+.panel.panel-default
+  .panel-heading = link_to 'Add New Project +', new_project_path, :class=>"text-black-50"
+  .panel-body
+    ul.list-group
+      - @projects.each do |project|
+        li.list-group-item
+          = link_to project.name, project_path(project), :class=>"text-secondary"
+          = link_to 'X',
+            project_path(project),
+            method: :delete,
+            data: { confirm: 'Sure?'},
+            :class=>"badge"
+          = link_to 'Edit', edit_project_path(project), :class=>"badge"

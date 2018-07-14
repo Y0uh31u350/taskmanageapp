@@ -1,23 +1,33 @@
-h2
-  = @task.name
-p
-  = simple_format @task.progress
+.container
+  .panel.panel-default
+    .panel-heading Task
+    .panel-body
+      table.table
+       thead
+        tr
+         th Taskname
+         th Progress
+       tbody
+        tr
+         td = @task.name
+         td = @task.progress
+      p Comment
+      - if @task.comments.any?
+        ul.list-group
+          - @task.comments.each do |comment|
+            li.list-group-item
+             = comment.body
+             = link_to 'x',
+               task_comment_path(@task, comment),
+               method: :delete,
+               data: { confirm: 'Sure?'},
+               :class=>"badge"
 
-h3 Comment
-- if @task.comments.any?
-  ul
-    - @task.comments.each do |comment|
-      li
-       = comment.body
-       = link_to '[x]',
-         task_comment_path(@task, comment),
-         method: :delete,
-         data: { confirm: 'Sure?'}
+      label.control-label Add Comment
+      = form_for([@task, @task.comments.build]) do |d|
+       p
+        = d.text_area :body, class: 'form-control'
+       p
+        = d.submit :class=>"btn btn-secondary btn-sm"
 
-= form_for([@task, @task.comments.build]) do |d|
-  p
-    = d.text_area :body
-  p
-    = d.submit
-
-= button_to 'back', projects_path, method: :get
+      = button_to 'back', projects_path, method: :get, :class=>"btn btn-secondary btn-sm"

@@ -1,23 +1,29 @@
-h2
-  = @project.name
+.container
+  .panel.panel-default
+    .panel-heading = @project.name
+    .panel-body
+      label.control-label task
+      - if @project.tasks.any?
+        ul.list-group
+          - @project.tasks.each do |task|
+            li.list-group-item
+              = link_to task.name, task_path(task), :class=>"text-secondary"
+              = link_to 'x',
+                project_task_path(@project, task),
+                method: :delete,
+                data: { confirm: 'Sure?'},
+                :class=>"badge"
+              span.badge.badge-pill.badge
+                = task.progress
 
-h3 Tasks
-- if @project.tasks.any?
-  ul
-    - @project.tasks.each do |task|
-      li
-        = link_to [ task.name, task.progress ], task_path(task)
-        = link_to '[x]',
-          project_task_path(@project, task),
-          method: :delete,
-          data: { confirm: 'Sure?'}
+  = form_for([@project, @project.tasks.build]) do |f|
+    p
+      = f.text_field :name, placeholder: 'enter task name', class: 'form-control'
 
-= form_for([@project, @project.tasks.build]) do |f|
-  p
-    = f.text_field :name, placeholder: 'enter task name'
-  p
-    = f.text_field :progress, placeholder: 'enter task progress'
-  p
-    = f.submit
+    p
+      = f.select :progress, %i[Complete InComplete], {}, class: 'form-control'
 
-= button_to 'back', projects_path, method: :get
+    p
+      = f.submit :class=>"btn btn-secondary btn-sm"
+
+  = button_to 'back', projects_path, method: :get, :class=>"btn btn-secondary btn-sm"
