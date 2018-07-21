@@ -15,14 +15,23 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    nav.navbar.navbar-dark.bg-dark
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed data-target="#navigation" data-toggle="collapse" type="button"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       a.navbar-brand href="#"  TaskManageApp
+      button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+       ul.navbar-nav.mr-auto
+        li.nav-item.active
+         a.nav-link href="/projects/"
+          | Project
+          span.sr-only (current)
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+           | User info
+          .dropdown-menu aria-labelledby="navbarDropdown"
+           a.dropdown-item href="#"  仮
+           a.dropdown-item href="#"  仮2
+
     .container
      = yield
 

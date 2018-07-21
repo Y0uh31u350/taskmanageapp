@@ -13,15 +13,12 @@
                 method: :delete,
                 data: { confirm: 'Sure?'},
                 :class=>"badge"
-              span.badge.badge-pill.badge
-                = task.progress
+              span.badge.badge-warning = task.progress
+
 
   = form_for([@project, @project.tasks.build]) do |f|
     p
       = f.text_field :name, placeholder: 'enter task name', class: 'form-control'
-
-    p
-      = f.select :progress, %i[Complete InComplete], {}, class: 'form-control'
 
     p
       = f.submit :class=>"btn btn-secondary btn-sm"
