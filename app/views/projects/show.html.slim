@@ -7,13 +7,13 @@
         ul.list-group
           - @project.tasks.each do |task|
             li.list-group-item
+              = check_box_tag '', '', task.progress, {'data-id' => task.id, 'data-project_id' => task.project_id}
               = link_to task.name, task_path(task), :class=>"text-secondary"
               = link_to 'x',
                 project_task_path(@project, task),
                 method: :delete,
                 data: { confirm: 'Sure?'},
                 :class=>"badge"
-              span.badge.badge-warning = task.progress
 
 
   = form_for([@project, @project.tasks.build]) do |f|
@@ -24,3 +24,10 @@
       = f.submit :class=>"btn btn-secondary btn-sm"
 
   = link_to('Back', projects_path ,class: "btn btn-secondary btn-sm")
+
+javascript:
+ | $(function() {
+    | $("input[type=checkbox]").click(function() {
+       | $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle')
+    | })
+ | })

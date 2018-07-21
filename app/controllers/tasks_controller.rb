@@ -15,10 +15,13 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @task.progress = !@task.progress
+    @task.save
   end
 
   private
     def tasks_params
       params.require(:task).permit(:name, :progress)
     end
+
 end

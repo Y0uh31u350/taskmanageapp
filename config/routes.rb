@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   root 'projects#index'
+  post 'projects/:project_id/tasks/:id/toggle' => 'tasks#toggle'
 end
