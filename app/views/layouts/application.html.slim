@@ -27,10 +27,14 @@ html
           span.sr-only (current)
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-           | User info
+           | User
           .dropdown-menu aria-labelledby="navbarDropdown"
-           a.dropdown-item href="#"  仮
-           a.dropdown-item href="#"  仮2
+           - if user_signed_in?
+            = link_to 'Profile', edit_user_registration_path, :class=>"dropdown-item"
+            = link_to "Logout", destroy_user_session_path, method: :delete, :class=>"dropdown-item"
+           - else
+            = link_to "Sign in", new_user_registration_path, :class=>"dropdown-item"
+            = link_to "Log in", new_user_session_path, :class=>"dropdown-item"
 
     .container
      = yield
