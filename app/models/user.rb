@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :user_id
   validates_presence_of :user_id
+  has_many :articles, dependent: :destroy
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

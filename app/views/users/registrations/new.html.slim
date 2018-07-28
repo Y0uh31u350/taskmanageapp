@@ -2,11 +2,11 @@ h2
   | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :user_id
     br
     = f.text_field :user_id, autofocus: true, autocomplete: "email"
-  .field
+  .form-group
     = f.label :password
     - if @minimum_password_length
       em
@@ -14,11 +14,11 @@ h2
         = @minimum_password_length
         |  characters minimum)
     br
-    = f.password_field :password, autocomplete: "off"
-  .field
+    = f.password_field :password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Password"
+  .form-group
     = f.label :password_confirmation
     br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
+    = f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "Confirmation password"
+  .actions.pb-5
     = f.submit "Sign up"
 = render "users/shared/links"
