@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :sign_in_required, only: [:show]
   def index
     @projects = Project.all.order(created_at: 'desc')
   end
