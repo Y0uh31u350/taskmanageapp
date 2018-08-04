@@ -1,0 +1,11 @@
+.row
+ .col-md-3
+   .card.p-2
+     = image_tag current_user.avatar.url, class: "card-img-top rounded-circle"
+     .card-dody
+      h4.card-title
+       = "@#{@user.username}"
+      p.card-text
+        span.text-secondary ユーザ情報がここに入ります。
+ .col-md-9.col-12
+  = render partial: "post", collection: @posts

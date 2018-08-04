@@ -2,15 +2,15 @@ h2
   | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :username
     br
     = f.text_field :username
-  .field
+  .form-group
     = f.label :email
     br
     = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+  .form-group
     = f.label :password
     - if @minimum_password_length
       em
@@ -19,7 +19,7 @@ h2
         |  characters minimum)
     br
     = f.password_field :password, autocomplete: "off"
-  .field
+  .form-group
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
