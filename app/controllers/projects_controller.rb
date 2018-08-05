@@ -9,12 +9,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.new
   end
 
   def create
-   binding.pry
-   @project = Project.new(project_params)
+   @project = current_user.projects.new(project_params)
    if @project.save
      redirect_to projects_path
    else
