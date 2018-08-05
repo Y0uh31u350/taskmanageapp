@@ -2,7 +2,8 @@
   = form_with model: Post.new do |f|
     .input-group.pb-4.mx-0
       = f.text_field :body, class: "form-control", placeholder: "What your doing now?"
-      span.input-group-btn = f.submit "Post", class: "btn btn-primary"
+    span.input-group-btn
+      = f.submit "Post", class: "btn btn-primary"
 
   .col-md-3.col-12.d-none.d-md-block
     .card.p-2

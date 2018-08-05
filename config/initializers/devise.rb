@@ -284,5 +284,5 @@ Devise.setup do |config|
 
   config.unlock_strategy = :email
   config.maximum_attempts = 4
-  config.timeout_in = 3.minutes
+  config.timeout_in = 3.hours
 end
