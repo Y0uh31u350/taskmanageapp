@@ -1,10 +1,10 @@
- .row
-  = form_with model: Post.new do |f|
-    .input-group.pb-4.mx-0
-      = f.text_field :body, class: "form-control", placeholder: "What your doing now?"
-    span.input-group-btn
-      = f.submit "Post", class: "btn btn-primary"
+ = form_with model: Post.new do |f|
+  .input-group.mb-3
+   = f.text_field :body, class: "form-control", placeholder: "What your doing now?"
+   .input-group-append
+    = f.submit "Post", class: "btn btn-outline-primary"
 
+ .row
   .col-md-3.col-12.d-none.d-md-block
     .card.p-2
       = image_tag current_user.avatar.url, class: "card-img-top rounded-circle"
@@ -13,6 +13,8 @@
           = "@#{@user.username}"
         p.card-text
           span.text-secondary ユーザ情報がここに入ります。
+
+
   .col-md-9.col-12
     = render partial: "post", collection: @posts
   = paginate @posts
