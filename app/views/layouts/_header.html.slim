@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand href="#"  = ApplicationHelper::APP_NAME
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+   ul.navbar-nav.mr-auto
+    li.nav-item.active
+     a.nav-link href="/projects/"
+      | Project
+      span.sr-only (current)
+    li.nav-item.dropdown
+      a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+       | User info
+      .dropdown-menu aria-labelledby="navbarDropdown"
+        - if user_signed_in?
+          = link_to current_user.username, pages_show_path, class: 'dropdown-item href'
+          = link_to 'プロフィール変更', edit_user_registration_path, class: 'dropdown-item href'
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item href'
+        - else
+          = link_to 'サインアップ', new_user_registration_path, class: 'dropdown-item href'
+          = link_to 'ログイン', new_user_session_path, class: 'dropdown-item href'
