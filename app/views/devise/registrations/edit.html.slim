@@ -13,7 +13,7 @@ h2
     = f.label :username
     br
     = f.text_field :username
-  .field
+  .form-group
     = f.label :email
     br
     = f.email_field :email, autofocus: true, autocomplete: "email"
@@ -32,7 +32,7 @@ h2
       em
         = @minimum_password_length
         |  characters minimum
-  .field
+  .form-group
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
@@ -42,12 +42,12 @@ h2
       | (we need your current password to confirm your changes)
     br
     = f.password_field :current_password, autocomplete: "off"
-  .actions
+  .actions.pb-5
     = f.submit "Update"
 
 h3
   | Cancel my account
 p
   | Unhappy?
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5"
 = link_to "Back", :back

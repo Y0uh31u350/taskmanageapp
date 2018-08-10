@@ -5,9 +5,9 @@ h2
   .form-group
     = f.label :username
     br
-    = f.text_field :username
+    = f.text_field :username, class: "form-control form-control-sm" 
   .form-group
-    = f.label :email
+    = f.label :email, class: "exampleFormControlInput1"
     br
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .form-group
@@ -23,6 +23,6 @@ h2
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
+  .actions.pb-5
     = f.submit "Sign up"
 = render "devise/shared/links"
