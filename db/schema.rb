@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_08_04_094934) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.string "progress", default: "InComplete"
+    t.boolean "progress", default: false, null: false
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
