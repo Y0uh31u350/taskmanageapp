@@ -43,11 +43,10 @@ h2
     br
     = f.password_field :current_password, autocomplete: "off"
   .actions.pb-5
-    = f.submit "Update"
+    = f.submit "Update", class: "btn btn-secondary"
 
 h3
-  | Cancel my account
+  | Delete my account
 p
-  | Unhappy?
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5"
-= link_to "Back", :back
+  = button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5"
+= link_to "Back", :back, class: "btn btn-secondary"

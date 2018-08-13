@@ -12,4 +12,7 @@ class User < ApplicationRecord
                                     content_type: %r{¥Aimage¥/.*¥z}
   has_many :projects, dependent: :destroy
   has_many :posts, inverse_of: :user
+  def created_month
+    created_at.strftime('%Y年%m月')
+  end
 end

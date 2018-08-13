@@ -1,20 +1,21 @@
  = form_with model: Post.new do |f|
-  .input-group.mb-3
+  .input-group.mb-4.w-80
    = f.text_field :body, class: "form-control", placeholder: "What your doing now?"
    .input-group-append
-    = f.submit "Post", class: "btn btn-outline-primary"
+    = f.submit "Post", class: "btn btn-secondary"
 
  .row
   .col-md-3.col-12.d-none.d-md-block
     .card.p-2
       = image_tag current_user.avatar.url, class: "card-img-top rounded-circle"
       .card-dody
-        h4.card-title
+        h4.card-title.px-2
           = "@#{@user.username}"
-        p.card-text
-          span.text-secondary ユーザ情報がここに入ります。
-
+        p.card-text.px-2
+          span.text-secondary = "#{@user.created_month}に登録"
+          br
+          span.text-secondary = "#{@user.posts_count} posts"
 
   .col-md-9.col-12
-    = render partial: "post", collection: @posts
+     = render partial: "post", collection: @posts
   = paginate @posts

@@ -6,14 +6,14 @@
       - if @project.tasks.any?
         ul.list-group
           - @project.tasks.each do |task|
-            li.list-group-item
+            li.list-group-item.left-delete
               = check_box_tag '', '', task.progress, {'data-id' => task.id, 'data-project_id' => task.project_id}
               = link_to task.name, task_path(task), :class=>"text-secondary"
-              = link_to 'x',
+              = link_to 'Delete',
                 project_task_path(@project, task),
                 method: :delete,
                 data: { confirm: 'Sure?'},
-                :class=>"badge"
+                :class=>"btn btn-secondary btn-sm pull-right"
 
 
   = form_for([@project, @project.tasks.build]) do |f|

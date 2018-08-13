@@ -15,13 +15,13 @@
       - if @task.comments.any?
         ul.list-group
           - @task.comments.each do |comment|
-            li.list-group-item
+            li.list-group-item.left-delete
              = comment.body
-             = link_to 'x',
+             = link_to 'Delete',
                task_comment_path(@task, comment),
                method: :delete,
                data: { confirm: 'Sure?'},
-               :class=>"badge"
+               :class=>"btn btn-secondary btn-sm pull-right"
 
       label.control-label Add Comment
       = form_for([@task, @task.comments.build]) do |d|

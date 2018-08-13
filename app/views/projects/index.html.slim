@@ -3,11 +3,12 @@
   .panel-body
     ul.list-group
       - @projects.each do |project|
-        li.list-group-item
+        li.list-group-item.left-delete
           = link_to project.name, project_path(project), :class=>"text-secondary"
-          = link_to 'X',
-            project_path(project),
-            method: :delete,
-            data: { confirm: 'Sure?'},
-            :class=>"badge"
-          = link_to 'Edit', edit_project_path(project), :class=>"badge badge-primary"
+          .btn-group.pull-right
+            = link_to 'Delete',
+              project_path(project),
+              method: :delete,
+              data: { confirm: 'Sure?'},
+              :class=>"btn btn-secondary btn-sm"
+            = link_to 'Edit', edit_project_path(project), :class=>"btn btn-secondary btn-sm pull-right"
