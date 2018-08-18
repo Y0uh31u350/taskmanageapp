@@ -6,6 +6,6 @@ h2
     = f.label :email
     br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-md-5 col-sm", placeholder: "Enter email"
-  .actions
-    = f.submit "Resend unlock instructions"
+  .actions.pb-5
+    = f.submit "Resend unlock instructions", class: "btn btn-secondary"
 = render "devise/shared/links"

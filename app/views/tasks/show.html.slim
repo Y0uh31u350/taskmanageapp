@@ -21,13 +21,13 @@
                task_comment_path(@task, comment),
                method: :delete,
                data: { confirm: 'Sure?'},
-               :class=>"btn btn-secondary btn-sm pull-right"
+               :class=>"btn btn-danger btn-sm pull-right"
 
       label.control-label Add Comment
       = form_for([@task, @task.comments.build]) do |d|
        p
         = d.text_area :body, class: 'form-control'
        p
-        = d.submit :class=>"btn btn-secondary btn-sm"
+        = d.submit :class=>"btn btn-success btn-sm"
 
       = link_to('Back', project_path(@task.project), class: "btn btn-secondary btn-sm")

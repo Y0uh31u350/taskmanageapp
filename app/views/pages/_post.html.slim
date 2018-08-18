@@ -5,5 +5,5 @@
     p.my-1
       strong = "@#{post.user.username} "
       span.text-secondary
-        = time_ago_in_words(post.created_at)
+        = time_ago_in_words(post.created_at) + " ago"
     = post.body

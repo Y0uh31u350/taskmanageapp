@@ -7,5 +7,5 @@ h2
     br
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-md-5 col-sm", placeholder: "Enter email"
   .actions.pb-5
-    = f.submit "Send me reset password instructions"
+    = f.submit "Send me reset password instructions", class: "btn btn-secondary"
 = render "devise/shared/links"

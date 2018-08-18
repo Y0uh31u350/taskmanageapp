@@ -13,7 +13,7 @@
                 project_task_path(@project, task),
                 method: :delete,
                 data: { confirm: 'Sure?'},
-                :class=>"btn btn-secondary btn-sm pull-right"
+                :class=>"btn btn-danger btn-sm pull-right"
 
 
   = form_for([@project, @project.tasks.build]) do |f|
@@ -21,7 +21,7 @@
       = f.text_field :name, placeholder: 'enter task name', class: 'form-control'
 
     p
-      = f.submit :class=>"btn btn-secondary btn-sm"
+      = f.submit :class=>"btn btn-success btn-sm"
 
   = link_to('Back', projects_path ,class: "btn btn-secondary btn-sm")
 
