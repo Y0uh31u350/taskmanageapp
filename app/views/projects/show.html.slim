@@ -24,10 +24,3 @@
       = f.submit :class=>"btn btn-success btn-sm"
 
   = link_to('Back', projects_path ,class: "btn btn-secondary btn-sm")
-
-javascript:
- | $(function() {
-    | $("input[type=checkbox]").click(function() {
-       | $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle')
-    | })
- | })

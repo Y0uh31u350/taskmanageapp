@@ -15,3 +15,11 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+  $('li.list-group-item.left-delete.sublist').on('click', function(){
+    $(this).children().toggleClass('hidden');
+  });
+});
+
+$('input[type="checkbox"]').attr("checked",true);

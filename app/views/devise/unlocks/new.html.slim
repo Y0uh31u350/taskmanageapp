@@ -3,9 +3,9 @@ h2
 = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
   = devise_error_messages!
   .form-group
-    = f.label :email
+    = f.label :email, for: "exampleInputEmail1"
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-md-5 col-sm", placeholder: "Enter email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-50", placeholder: "Enter email", id: "exampleInputEmail1"
   .actions.pb-5
     = f.submit "Resend unlock instructions", class: "btn btn-secondary"
 = render "devise/shared/links"
