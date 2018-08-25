@@ -5,9 +5,11 @@ h3.mt-0.mb-5 Project Index
     ul.list-group.projectlist
       - @projects.each do |project|
         li.list-group-item.left-delete.sublist
-          = project.name
+          span.sublist
+           = fa_icon "angle-right"
+           = project.name
           .btn-group.pull-right
-            = link_to 'New Task',
+            = link_to 'show',
               project_path(project),
               :class=>"btn btn-success btn-sm"
             = link_to 'Edit', edit_project_path(project), :class=>"btn btn-info btn-sm"
@@ -16,7 +18,7 @@ h3.mt-0.mb-5 Project Index
               method: :delete,
               data: { confirm: 'Sure?'},
               :class=>"btn btn-danger btn-sm"
-          ul.hidden.tasklist
+          ul.tasklist.hidden
            - project.tasks.each do |task|
             li
               = task.name

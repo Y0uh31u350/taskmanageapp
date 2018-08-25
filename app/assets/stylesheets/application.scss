@@ -26,10 +26,18 @@ a {
   cursor: pointer;
 }
 
-.sublist:active {
-  color: #808080;
+span.sublist:hover {
+  color: #888888;
+}
+
+span.sublist:active {
+  color: #AAAAAA;
 }
 
 .tasklist > li {
   list-style-type: none;
+}
+
+i  {
+  margin-right: 5px;
 }

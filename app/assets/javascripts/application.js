@@ -17,9 +17,23 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('li.list-group-item.left-delete.sublist').on('click', function(){
-    $(this).children().toggleClass('hidden');
+  $('span.sublist').on('click', function(){
+    $(this).siblings('ul').toggleClass('hidden');
   });
 });
 
-$('input[type="checkbox"]').attr("checked",true);
+$(document).ready(function(){
+  $('span.sublist').on('click', function(){
+    $(this).children('i').toggleClass('fa-rotate-90');
+  });
+});
+
+$(function(){
+  if(('input[type="checkbox"]').attr("checked"){
+    @task.progress = 1;
+  } else{
+    @task.progress = 0;
+  }
+});
+
+// $('input[type="checkbox"]').attr("checked",true);

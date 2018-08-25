@@ -15,4 +15,6 @@ class User < ApplicationRecord
   def created_month
     created_at.strftime('%Y年%m月')
   end
+  has_many  :user_teams
+  has_many  :teams, through: :user_teams
 end
