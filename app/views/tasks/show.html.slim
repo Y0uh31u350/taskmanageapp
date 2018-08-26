@@ -17,11 +17,15 @@
           - @task.comments.each do |comment|
             li.list-group-item.left-delete
              = comment.body
-             = link_to 'Delete',
-               task_comment_path(@task, comment),
-               method: :delete,
-               data: { confirm: 'Sure?'},
-               :class=>"btn btn-danger btn-sm pull-right"
+             .pull-right
+              = link_to task_comment_path(@task, comment),
+                method: :delete,
+                data: { confirm: 'Sure?'},
+                :class=>"text-danger",
+                'data-toggle' => 'tooltip',
+                'data-placement' => 'top',
+                title: 'Delete Comment'
+               = fa_icon("trash lg")
 
       label.control-label Add Comment
       = form_for([@task, @task.comments.build]) do |d|

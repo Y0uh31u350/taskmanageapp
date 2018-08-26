@@ -1,4 +1,5 @@
 .container
+  h3 Details
   .panel.panel-default
     .panel-heading = @project.name
     .panel-body
@@ -9,12 +10,15 @@
             li.list-group-item.left-delete
               = check_box_tag '', '', task.progress, {'data-id' => task.id, 'data-project_id' => task.project_id}
               = link_to task.name, task_path(task), :class=>"text-secondary"
-              = link_to 'Delete',
-                project_task_path(@project, task),
-                method: :delete,
-                data: { confirm: 'Sure?'},
-                :class=>"btn btn-danger btn-sm pull-right"
-
+              .pull-right
+               = link_to project_task_path(@project, task),
+                 method: :delete,
+                 data: { confirm: 'Sure?'},
+                 :class=>"text-danger",
+                 'data-toggle' => 'tooltip',
+                 'data-placement' => 'top',
+                 title: 'Delete Task'
+                = fa_icon("trash lg")
 
   = form_for([@project, @project.tasks.build]) do |f|
     p

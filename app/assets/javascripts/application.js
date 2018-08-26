@@ -28,12 +28,8 @@ $(document).ready(function(){
   });
 });
 
-$(function(){
-  if(('input[type="checkbox"]').attr("checked"){
-    @task.progress = 1;
-  } else{
-    @task.progress = 0;
-  }
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
-// $('input[type="checkbox"]').attr("checked",true);
+$('input[type="checkbox"]').attr("checked",true);
