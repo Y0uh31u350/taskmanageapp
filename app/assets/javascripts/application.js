@@ -32,4 +32,8 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-$('input[type="checkbox"]').attr("checked",true);
+$(function() {
+  $("input[type=checkbox]").click(function() {
+    $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle');
+  });
+});

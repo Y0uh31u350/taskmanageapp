@@ -19,6 +19,13 @@ class TasksController < ApplicationController
     @task.save
   end
 
+  def toggle
+      render nothing: true
+      @task     = Task.find(params[:id])
+      @task.progress = !@task.progress
+      @task.save
+  end
+
   private
     def tasks_params
       params.require(:task).permit(:name, :progress)

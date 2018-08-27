@@ -40,13 +40,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def toggle
-      render nothing: true
-      @task     = Task.find(params[:id])
-      @task.progress = !@task.progress
-      @task.save
-  end
-
   private
     def project_params
       params.require(:project).permit(:name)

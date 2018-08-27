@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  post 'projects/:project_id/tasks/:id/toggle' => 'tasks#toggle'
+  post 'projects/:project_id/tasks/:id/toggle' => 'task#toggle'
 
 end
