@@ -34,6 +34,6 @@ $(document).ready(function(){
 
 $(function() {
   $("input[type=checkbox]").click(function() {
-    $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle');
+    $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle')
   });
 });

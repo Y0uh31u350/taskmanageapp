@@ -16,12 +16,11 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @task.progress = !@task.progress
-    @task.save
   end
 
   def toggle
       render nothing: true
-      @task     = Task.find(params[:id])
+      @task = Task.find(params[:id])
       @task.progress = !@task.progress
       @task.save
   end

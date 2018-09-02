@@ -9,7 +9,7 @@
           - @project.tasks.each do |task|
             li.list-group-item.left-delete
               = check_box_tag '', '', task.progress, {'data-id' => task.id, 'data-project_id' => task.project_id}
-              = link_to task.name, task_path(task), :class=>"text-secondary"
+              = link_to task.name, task_path(task), :class=>"text-secondary disabled"
               .pull-right
                = link_to project_task_path(@project, task),
                  method: :delete,

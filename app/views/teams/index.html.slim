@@ -1,0 +1,25 @@
+h3.mt-0.mb-5 Project Team
+.panel.panel-default
+  .panel-heading = link_to 'Add New Team +', new_team_path, :class=>"text-black-50"
+  .panel-body
+    ul.list-group.projectlist
+     - @teams.each do |team|
+       li.list-group-item.left-delete
+         span.sublist data-placement="top" data-toggle="tooltip" title=("Display task list")
+          = fa_icon "angle-right"
+          = team.name
+         .pull-right
+           = link_to edit_team_path(team),
+             :class=>"text-warning",
+             'data-toggle' => 'tooltip',
+             'data-placement' => 'top',
+             title: 'Edit Team'
+            = fa_icon("edit lg")
+           = link_to team_path(team),
+             method: :delete,
+             data: { confirm: 'Sure?'},
+             :class=>"text-danger",
+             'data-toggle' => 'tooltip',
+             'data-placement' => 'top',
+             title: 'Delete Project'
+            = fa_icon("trash lg")

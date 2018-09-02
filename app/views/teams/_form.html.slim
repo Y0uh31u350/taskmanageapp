@@ -1,0 +1,8 @@
+= form_for @team, html: { class: 'form-group'} do |f|
+  p
+    = f.text_field :name, placeholder: 'enter team name', class: 'form-control'
+    - if @team.errors.messages[:name].any?
+  p
+    span.text-danger = @team.errors.messages[:name][0]
+  p
+    = f.submit :class=>"btn btn-success btn-sm"
