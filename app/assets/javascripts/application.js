@@ -32,8 +32,19 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
 
+/*
 $(function() {
   $("input[type=checkbox]").click(function() {
     $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle')
   });
+});
+*/
+
+$(function() {
+  $.ajax({
+      url: location.protocol + '//' + location.host + '/tasks/toggle',
+      type: "POST",
+      data: "",
+      dataType: "json",
+      })
 });
